@@ -14,7 +14,7 @@ jobs:
         chmod +x ./bin/earthly  # Makes the earthly binary executable
 
     - name: Build with Earthly
-      run: earthly +all  # Executes the earthly command with the target +all
+      run: ./bin/earthly +all  # Executes the earthly command with the target +all
 
     - name: Check output
       run: ls -l  # Optional: Lists files in the current directory to verify outputs
