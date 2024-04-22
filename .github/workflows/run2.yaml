@@ -15,7 +15,4 @@ jobs:
 
     - name: Build with Earthly
       run: |-
-       env
        ./bin/earthly  --buildkit-image earthly/buildkitd +pass
-       ./bin/earthly  --buildkit-image earthly/buildkitd +logstuff
-       ls -l 
