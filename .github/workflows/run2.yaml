@@ -1,4 +1,4 @@
-name: Build with Earthly All
+name: Earthly Pass
 
 on: [push, pull_request]
 
@@ -15,6 +15,9 @@ jobs:
 
     - name: Build with Earthly
       run: ./bin/earthly  --buildkit-image earthly/buildkitd +pass
+
+    - name: Build with Earthly
+      run: ./bin/earthly  --buildkit-image earthly/buildkitd +nested
 
     - name: Check output
       run: ls -l 

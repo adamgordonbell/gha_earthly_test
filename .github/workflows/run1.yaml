@@ -1,4 +1,4 @@
-name: Build with Earthly All
+name: Earthly Fail
 
 on: [push, pull_request]
 
