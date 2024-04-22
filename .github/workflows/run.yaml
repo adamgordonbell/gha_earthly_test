@@ -1,0 +1,20 @@
+name: Build with Earthly
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Runs the job on the latest version of Ubuntu
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2  # Checks out your repository under $GITHUB_WORKSPACE
+
+    - name: Set up Earthly binary
+      run: |
+        chmod +x ./bin/earthly  # Makes the earthly binary executable
+
+    - name: Build with Earthly
+      run: earthly +all  # Executes the earthly command with the target +all
+
+    - name: Check output
+      run: ls -l  # Optional: Lists files in the current directory to verify outputs
