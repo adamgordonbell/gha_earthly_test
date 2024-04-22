@@ -17,7 +17,12 @@ pass:
     FROM +deps
     RUN true
 
+logstuff:
+    FROM +deps
+    RUN echo "Hello again"
+
 all:
     BUILD +build
     BUILD +pass
+    BUILD +logstuff
     BUILD +fail
