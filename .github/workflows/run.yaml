@@ -4,17 +4,17 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Runs the job on the latest version of Ubuntu
+    runs-on: ubuntu-latest 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2  # Checks out your repository under $GITHUB_WORKSPACE
+      uses: actions/checkout@v2 
 
     - name: Set up Earthly binary
       run: |
-        chmod +x ./bin/earthly  # Makes the earthly binary executable
+        chmod +x ./bin/earthly
 
     - name: Build with Earthly
-      run: ./bin/earthly +all  # Executes the earthly command with the target +all
+      run: ./bin/earthly  --buildkit-image earthly/buildkitd +all
 
     - name: Check output
-      run: ls -l  # Optional: Lists files in the current directory to verify outputs
+      run: ls -l 
