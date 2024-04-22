@@ -17,7 +17,7 @@ jobs:
       run: ./bin/earthly  --buildkit-image earthly/buildkitd +pass
 
     - name: Build with Earthly
-      run: ./bin/earthly  --buildkit-image earthly/buildkitd +nested
+      run: ./bin/earthly  --buildkit-image earthly/buildkitd +logstuff
 
     - name: Check output
       run: ls -l 
