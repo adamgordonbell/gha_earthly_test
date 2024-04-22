@@ -9,7 +9,8 @@ build:
     RUN echo "hello" > /hello.txt
 
 fail:
-    FROM deps
+    FROM +deps
+    RUN true
     RUN false
 
 pass:
