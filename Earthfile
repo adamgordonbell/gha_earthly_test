@@ -17,16 +17,7 @@ pass:
     FROM +deps
     RUN true
 
-nested:
-    FROM +deps
-    RUN --no-cache --raw-output echo "::group:: build something group 1"
-    RUN echo "should have prefix"
-    RUN --no-cache --raw-output echo "::endgroup::" 
-
 all:
     BUILD +build
-    WAIT
-        BUILD +pass
-        BUILD +nested
-    END
+    BUILD +pass
     BUILD +fail
