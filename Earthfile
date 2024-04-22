@@ -10,7 +10,9 @@ build:
 
 fail:
     FROM +deps
-    RUN true
+    RUN echo "Let's generate a bunch of output and then fail"
+    RUN find / -type f
+    RUN apk info -vv
     RUN false
 
 pass:
