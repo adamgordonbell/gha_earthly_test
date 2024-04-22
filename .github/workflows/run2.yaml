@@ -1,4 +1,4 @@
-name: Build with Earthly
+name: Build with Earthly All
 
 on: [push, pull_request]
 
@@ -14,7 +14,7 @@ jobs:
         chmod +x ./bin/earthly
 
     - name: Build with Earthly
-      run: ./bin/earthly  --buildkit-image earthly/buildkitd +all
+      run: ./bin/earthly  --buildkit-image earthly/buildkitd +pass
 
     - name: Check output
       run: ls -l 

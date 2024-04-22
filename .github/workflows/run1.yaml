@@ -1,0 +1,20 @@
+name: Build with Earthly All
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2 
+
+    - name: Set up Earthly binary
+      run: |
+        chmod +x ./bin/earthly
+
+    - name: Build with Earthly
+      run: ./bin/earthly  --buildkit-image earthly/buildkitd +all
+
+    - name: Check output
+      run: ls -l 
