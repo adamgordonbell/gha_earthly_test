@@ -1,4 +1,4 @@
-VERSION 0.8
+VERSION --raw-output 0.8
 FROM alpine
 
 deps:
@@ -17,7 +17,14 @@ pass:
     FROM +deps
     RUN true
 
+nested:
+    FROM +deps
+    RUN --no-cache --raw-output echo "::group:: build something group 1"
+    RUN echo "should have prefix"
+    RUN --no-cache --raw-output echo "::endgroup::" 
+
 all:
     BUILD +build
     BUILD +pass
+    BUILD +nested
     BUILD +fail
