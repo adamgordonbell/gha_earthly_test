@@ -25,6 +25,8 @@ nested:
 
 all:
     BUILD +build
-    BUILD +pass
-    BUILD +nested
+    WAIT
+        BUILD +pass
+        BUILD +nested
+    END
     BUILD +fail
