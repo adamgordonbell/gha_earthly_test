@@ -12,9 +12,7 @@ build:
 fail:
     FROM +deps
     RUN echo "Let's generate a bunch of output and then fail"
-    RUN apk info -vv
-    RUN "something"
-    RUN false
+    RUN apk info -vv && "something"
 
 pass:
     FROM +deps
