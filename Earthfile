@@ -6,6 +6,7 @@ deps:
 
 build:
     FROM +deps
+    RUN echo $GITHUB_STEP_SUMMARY
     RUN --raw-output echo "::error file=Earthfile,line=15,col=4,title=Error::The command RUN something did not complete successfully. Exit code 127<br/>RUN something /bin/sh: something: not found"
     RUN echo "hello" > /hello.txt
 
