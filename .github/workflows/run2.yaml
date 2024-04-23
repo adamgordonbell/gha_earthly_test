@@ -15,4 +15,5 @@ jobs:
 
     - name: Build with Earthly
       run: |-
-       ./bin/earthly  --buildkit-image earthly/buildkitd +pass
+        echo "GITHUB_STEP_SUMMARY:" $GITHUB_STEP_SUMMARY
+        ./bin/earthly  --buildkit-image earthly/buildkitd +pass
