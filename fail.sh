@@ -3,7 +3,7 @@
 # Loop indefinitely until the command fails
 while true; do
     # Generate a random number and check if it is less than the specified threshold
-    if (( $RANDOM % 10 == 0 )); then
+    if (( $RANDOM % 100 == 0 )); then
         echo "Command failed."
         exit 1  # Exit with a failure status
     else

@@ -1,8 +1,8 @@
-VERSION --raw-output 0.8
+VERSION 0.8
 FROM alpine
 
 deps:
-    RUN apk --update add build-base cmake
+    RUN apk --update add build-base cmake bash
 
 build:
     FROM +deps
@@ -10,9 +10,10 @@ build:
 
 fail:
     FROM +deps
+    COPY fail.sh /
     RUN echo "Let's generate a bunch of output and then fail"
     RUN apk info -vv
-    RUN ./fail
+    RUN ./fail.sh
 
 pass:
     FROM +deps
